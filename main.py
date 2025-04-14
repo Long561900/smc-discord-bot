@@ -1,26 +1,20 @@
-
-import discord
-import json
-import asyncio
+import os
 import requests
+import time
 
-with open("config.json") as f:
-    config = json.load(f)
+DISCORD_TOKEN = os.getenv("MTM2MDIyODA1ODQ1NTYwNTM5Mg.G6rZ_u.eML2JrW4OWM4TUI4zj6TPi68AZZeI59SQhnbL0")
+WEBHOOK_URL = os.getenv("https://discord.com/api/webhooks/1360181990397050950/Gjk6bzD_UOhjtn2iwCwNs6Nl50BpSpzYPxIyudSmfvs0h_lf9rY15OLB_PYeA8QSbeAc")
 
-TOKEN = config["discord_token"]
-WEBHOOK_URL = config["webhook_url"]
+def send_alert(msg):
+    payload = {"content": msg}
+    requests.post(WEBHOOK_URL, json=payload)
 
-intents = discord.Intents.default()
-bot = discord.Client(intents=intents)
-
-@bot.event
-async def on_ready():
-    print(f"Logged in as {bot.user.name}")
+def main_loop():
     while True:
-        data = {
-            "content": "**[SMC ALERT]** EUR/USD xuất hiện CHoCH + OB Buy zone. Winrate 82%. ✅"
-        }
-        requests.post(WEBHOOK_URL, json=data)
-        await asyncio.sleep(3600)
+        # Giả lập tín hiệu SMC mẫu
+        signal = "[SMC Alert] EUR/USD vừa xuất hiện CHoCH + OB Buy zone. Winrate 82% 🔵"
+        send_alert(signal)
+        time.sleep(3600)  # gửi mỗi 1 tiếng
 
-bot.run(TOKEN)
+if __name__ == "__main__":
+    main_loop()

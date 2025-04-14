@@ -1,2 +1,2 @@
 # SMC Discord Bot
-Tự động gửi tín hiệu giao dịch lên Discord.
+Tự động gửi tín hiệu SMC lên Discord.
