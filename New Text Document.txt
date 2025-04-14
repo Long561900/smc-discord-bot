@@ -1,7 +1,0 @@
-cd C:\Users\tranb\Downloads\New folder (2)
-git init
-git remote add origin https://github.com/Long561900/smc-discord-bot.git
-git add .
-git commit -m "first push"
-git branch -M main
-git push -u origin main
