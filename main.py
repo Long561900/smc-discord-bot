@@ -2,9 +2,8 @@ import os
 import requests
 import time
 
-DISCORD_TOKEN = os.getenv("MTM2MDIyODA1ODQ1NTYwNTM5Mg.G6rZ_u.eML2JrW4OWM4TUI4zj6TPi68AZZeI59SQhnbL0")
-WEBHOOK_URL = os.getenv("https://discord.com/api/webhooks/1360181990397050950/Gjk6bzD_UOhjtn2iwCwNs6Nl50BpSpzYPxIyudSmfvs0h_lf9rY15OLB_PYeA8QSbeAc")
-
+DISCORD_TOKEN = os.getenv("")
+WEBHOOK_URL = os.getenv("")
 def send_alert(msg):
     payload = {"content": msg}
     requests.post(WEBHOOK_URL, json=payload)
